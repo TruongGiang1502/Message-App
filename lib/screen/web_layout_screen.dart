@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:message_app/colors.dart';
+import 'package:message_app/common/utils/colors.dart';
 import 'package:message_app/widget/chat_list.dart';
 import 'package:message_app/widget/contacts_list.dart';
 import 'package:message_app/widget/web_chat_appbar.dart';

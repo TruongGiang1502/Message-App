@@ -1,10 +1,20 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:message_app/screen/mobile_layout_screen.dart';
-import 'package:message_app/screen/web_layout_screen.dart';
-import 'package:message_app/utils/responsive_layout.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:message_app/common/utils/colors.dart';
+import 'package:message_app/features/landing/screens/landing_screen.dart';
+import 'package:message_app/firebase_options.dart';
+import 'package:message_app/route.dart';
+// import 'package:message_app/screen/mobile_layout_screen.dart';
+// import 'package:message_app/screen/web_layout_screen.dart';
+// import 'package:message_app/utils/responsive_layout.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform
+  );
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -16,15 +26,18 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Message App',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+      theme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: backgroundColor,
+        appBarTheme: const AppBarTheme(
+          color: appBarColor
+        )
       ),
-      home: //MobileChatScreen()
-      const ResponsiveLayout(
-        mobileScreenLayout: MobileLayoutScreen(), 
-        webScreenLayout: WebLayoutScreen()
-      )
+      onGenerateRoute: (settings) => generateRoute(settings),
+      home: const LandingScreen()
+      // const ResponsiveLayout(
+      //   mobileScreenLayout: MobileLayoutScreen(), 
+      //   webScreenLayout: WebLayoutScreen()
+      // )
     );
   }
 }
