@@ -3,6 +3,7 @@ import 'package:message_app/common/utils/colors.dart';
 import 'package:message_app/widget/contacts_list.dart';
 
 class MobileLayoutScreen extends StatelessWidget {
+  static const routeName = '/mobile_screen_layout';
   const MobileLayoutScreen({super.key});
 
   @override

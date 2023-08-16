@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-
-// ignore: must_be_immutable
 class OtpInputField extends StatelessWidget {
   final Size size;
   final TextEditingController controller;
   final bool isFinalValue;
-  const OtpInputField({super.key, required this.controller, required this.size, required this.isFinalValue});
+  const OtpInputField({super.key, required this.size, required this.isFinalValue, required this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +13,7 @@ class OtpInputField extends StatelessWidget {
       height: size.height*0.07,
       width: size.width*0.15,
       child: TextField(
-        //maxLength: 1,
+        showCursor: false,
         controller: controller,
         style: const TextStyle(fontSize: 20),
         textAlign: TextAlign.center,
@@ -30,17 +28,9 @@ class OtpInputField extends StatelessWidget {
           FilteringTextInputFormatter.digitsOnly
         ],
         onChanged: (value) {
-          if(value.length == 1){
-            if(!isFinalValue){
-              FocusScope.of(context).nextFocus();
-            }
-            else{
-
-            }
+          if(value.length == 1 && !isFinalValue){
+              FocusScope.of(context).nextFocus();     
           }
-          else {
-            FocusScope.of(context).previousFocus();
-          }   
         } ,
       ),
     );

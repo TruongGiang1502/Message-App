@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:message_app/common/utils/colors.dart';
 import 'package:message_app/common/widgets/custom_button.dart';
-import 'package:message_app/common/widgets/otp_input.dart';
+import 'package:message_app/common/widgets/otp_input_field.dart';
 import 'package:message_app/features/auth/controller/auth_controller.dart';
 
 class OTPScreen extends ConsumerWidget {
@@ -18,6 +18,7 @@ class OTPScreen extends ConsumerWidget {
         );
   }
 
+  
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     TextEditingController otp1 = TextEditingController();
@@ -102,28 +103,6 @@ class OTPScreen extends ConsumerWidget {
                     },
                     text: 'Confirm')
               ),
-            // SizedBox(
-            //   width: size.width * 0.7,
-            //   child: TextField(
-            //     style: const TextStyle(fontSize: 20),
-            //     textAlign: TextAlign.center,
-            //     decoration: const InputDecoration(
-            //       border: OutlineInputBorder(),
-            //       hintText: '- - - - - -',
-            //       hintStyle: TextStyle(fontSize: 50),
-            //     ),
-            //     keyboardType: TextInputType.number,
-            //     inputFormatters: [
-            //       LengthLimitingTextInputFormatter(6),
-            //       FilteringTextInputFormatter.digitsOnly
-            //     ],
-            //     onChanged: (value) {
-            //       if (value.length == 6) {
-            //         verifyOTP(ref, context, value.trim());
-            //       }
-            //     },
-            //   ),
-            // )
           ],
         ),
       ),
