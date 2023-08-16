@@ -28,7 +28,7 @@ class UserModel {
       profileImage: map['profileImage']??'', 
       isOnline: map['isOnline']??false, 
       phoneNumber: map['phoneNumber']??'', 
-      groupID: List<String>.from(map['groupID']),
+      groupID: (map['groupID'] as List<String>?) ?? [],
     );
   }
 }
