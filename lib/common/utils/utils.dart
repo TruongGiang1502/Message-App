@@ -21,6 +21,7 @@ Future<File?> pickImageFromGallery(BuildContext context) async {
 
   } catch (error){ 
     
+    // ignore: use_build_context_synchronously
     showSnackBar(context: context, content: error.toString());
 
   }

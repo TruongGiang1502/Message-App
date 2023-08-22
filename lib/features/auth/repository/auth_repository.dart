@@ -36,6 +36,7 @@ class AuthRepository {
           }),
           codeAutoRetrievalTimeout: (String vertificationID) {});
     } on FirebaseAuthException catch (e) {
+      // ignore: use_build_context_synchronously
       showSnackBar(context: context, content: e.message!);
     }
   }
@@ -53,6 +54,7 @@ class AuthRepository {
       Navigator.pushNamedAndRemoveUntil(
           context, UserInformationScreen.routeName, (route) => false);
     } on FirebaseAuthException catch (error) {
+      // ignore: use_build_context_synchronously
       showSnackBar(context: context, content: error.message!);
     }
   }
@@ -101,6 +103,7 @@ class AuthRepository {
           (route) => false);
           
     } catch (error) {
+      // ignore: use_build_context_synchronously
       showSnackBar(context: context, content: error.toString());
     }
   }

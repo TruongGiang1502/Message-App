@@ -4,6 +4,7 @@ import 'package:message_app/info.dart';
 import 'package:message_app/widget/chat_list.dart';
 
 class MobileChatScreen extends StatelessWidget {
+  static const String routeName = 'mobile_chat';
   const MobileChatScreen({super.key});
 
   @override
