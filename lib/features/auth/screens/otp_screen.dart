@@ -99,6 +99,12 @@ class OTPScreen extends ConsumerWidget {
                           otp5.text +
                           otp6.text
                         );
+                      otp1.dispose;
+                      otp2.dispose;
+                      otp3.dispose;
+                      otp4.dispose;
+                      otp5.dispose;
+                      otp6.dispose;
                       verifyOTP(ref, context, inputOTP);
                     },
                     text: 'Confirm')
